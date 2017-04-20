@@ -30,7 +30,7 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    if @user.voted_for?(@post)
+    if current_user.voted_for?(@post)
       current_user.unlike(@post)
     else
       current_user.up_votes(@post)
