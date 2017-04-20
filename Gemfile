@@ -36,7 +36,7 @@ gem 'acts_as_commentable_with_threading', github: 'elight/acts_as_commentable_wi
 
 # this will go into the development group.... later ;)
 gem 'faker', group: %i(development test)
-gem 'rspec-rails', group: [:development, :test]
+gem 'rspec-rails', '3.5.0', group: [:development, :test]
 gem 'coveralls', require: false, group: %i(development test)
 
 group :test do
