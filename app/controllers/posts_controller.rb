@@ -30,7 +30,12 @@ class PostsController < ApplicationController
   end
 
   def upvote
-    current_user.up_votes(@post)
+    if @user.fint_up_voted_items.includes?(@post)
+      current_user.unlike(@post)
+    else
+      current_user.up_votes(@post)
+    end
+
     respond_to do |format|
       format.html { redirect_to posts_path, notice: 'Successfully voted!' }
     end
