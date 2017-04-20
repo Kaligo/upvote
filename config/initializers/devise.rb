@@ -1,7 +1,7 @@
 secrets = Rails.application.secrets
 
 supported_omniauth_providers = {
-  google: [:google_client_id, :google_secret, scope: 'email'],
+  google: [:google_client_id, :google_secret, scope: 'email', hd: [Rails.application.secrets[:registration_allowed_domain]],
   twitter: [:twitter_api_key, :twitter_api_secret],
   facebook: [:facebook_app_id, :facebook_app_secret],
   github: [
@@ -24,7 +24,7 @@ Devise.setup do |config|
   # The secret key used by Devise. Devise uses this key to generate
   # random tokens. Changing this key will render invalid all existing
   # confirmation, reset password and unlock tokens in the database.
-  # config.secret_key = 'd3bc3b796f6484d2b913328f074fb5d937f09f8a55939bab8f54aa78546774ce1c958145f4842c8b193f2787e50e16a74e1daef4995a11aae26a5d9881c89a91'
+  config.secret_key = Rails.application.secrets[:devise_secret_key]
 
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in Devise::Mailer,
