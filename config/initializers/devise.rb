@@ -1,6 +1,7 @@
 secrets = Rails.application.secrets
 
 supported_omniauth_providers = {
+  google: [:google_client_id, :google_secret, scope: 'email'],
   twitter: [:twitter_api_key, :twitter_api_secret],
   facebook: [:facebook_app_id, :facebook_app_secret],
   github: [
@@ -11,6 +12,7 @@ supported_omniauth_providers = {
 }
 
 CONFIGURED_OMNIAUTH_PROVIDERS = supported_omniauth_providers.each_with_object([]) do |i, m|
+
   creds =  i.last.first(2).map { |key| secrets.send(key) }.compact
   m << i.first if creds.length == 2
   m

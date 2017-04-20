@@ -1,8 +1,8 @@
 source 'https://rubygems.org'
 
-ruby '2.2.2'
+ruby '2.4.1'
 
-gem 'rails', github: 'rails/rails', branch: '4-2-stable'
+gem 'rails', '~> 4.2'
 gem 'sprockets'
 gem 'sass-rails'
 gem 'uglifier', '>= 1.3.0'
@@ -16,6 +16,7 @@ gem 'puma'
 gem 'omniauth-twitter'
 gem 'omniauth-github'
 gem 'omniauth-facebook'
+gem "omniauth-google-oauth2"
 
 gem 'typekit-rails'
 gem 'acts_as_votable'
@@ -34,9 +35,9 @@ gem 'awesome_nested_set',                 github: 'collectiveidea/awesome_nested
 gem 'acts_as_commentable_with_threading', github: 'elight/acts_as_commentable_with_threading'
 
 # this will go into the development group.... later ;)
-gem 'faker'
+gem 'faker', group: %i(development test)
 gem 'rspec-rails', group: [:development, :test]
-gem 'coveralls', require: false
+gem 'coveralls', require: false, group: %i(development test)
 
 group :test do
   gem 'shoulda-matchers'
