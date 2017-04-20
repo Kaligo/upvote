@@ -15,7 +15,7 @@ module Users
             redirect_to root_url
           else
             session["devise.#{provider}_data"] = env["omniauth.auth"]
-            redirect_to new_user_registration_url
+            redirect_to root_url
           end
         end
       }
