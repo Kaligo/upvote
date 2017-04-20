@@ -1,7 +1,7 @@
 secrets = Rails.application.secrets
 
 supported_omniauth_providers = {
-  google: [:google_client_id, :google_secret, scope: 'email', hd: [Rails.application.secrets[:registration_allowed_domain]],
+  google: [:google_client_id, :google_secret, scope: 'email', hd: [Rails.application.secrets[:registration_allowed_domain]]],
   twitter: [:twitter_api_key, :twitter_api_secret],
   facebook: [:facebook_app_id, :facebook_app_secret],
   github: [
