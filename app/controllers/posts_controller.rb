@@ -15,7 +15,7 @@ class PostsController < ApplicationController
 
   def popular
     @posts = Post::Base.with_number_of_votes.order('num_of_votes DESC')
-    render template: 'index'
+    render template: 'posts/index'
   end
 
   def submitted_by_user
