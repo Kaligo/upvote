@@ -9,6 +9,8 @@ Rails.application.routes.draw do
 
   get '/login' => 'pages#login', as: :login
 
+  get '/popular' => 'posts#popular', as: :popular
+
   resources :posts, only: [:new, :create, :index] do
     collection do
       get ':year/:month/:day' => :index, as: :date
