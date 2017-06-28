@@ -2,9 +2,15 @@ li.post
   .submission
     = link_to upvote_post_path(post), method: :post do
       .upvote
-        span.upvote-link= icon(:'caret-up')
+        - if current_user && current_user.voted_for?(post)
+          span.upvote-link= icon(:'caret-up')
+        - else
+          span.upvote-link= icon(:'caret-down')
         .vote-count= post.num_of_votes
-    .url= link_to post.title, outbound_post_path(post), target: '_blank', class: 'post-url title'
+    .url
+      = link_to post.title, outbound_post_path(post), target: '_blank', class: 'post-url title'
+      span class=(post.status)
+        = post.status
     .description= post.description
     = render 'posts/tags', post: post unless controller_name == 'comments'
   .view-discussion

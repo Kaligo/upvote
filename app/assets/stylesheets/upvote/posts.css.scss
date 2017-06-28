@@ -46,6 +46,11 @@ li.post {
     margin-bottom: 4px;
   }
 
+  .post-url.new { background-color: orange; }
+  .post-url.accepted { background-color: green; }
+  .post-url.completed { background-color: gray; }
+  .post-url.rejected { background-color: red; }
+
   .description, .post-tags {
     margin-left: $vote_container_size + $vote_container_margin;
   }

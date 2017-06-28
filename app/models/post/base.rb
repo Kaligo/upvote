@@ -3,6 +3,8 @@ module Post
     extend FriendlyId
     friendly_id :title, use: :slugged
 
+    enum status: %i(new accepted completed rejected)
+
     self.table_name = :posts
 
     scope :with_number_of_votes, -> {
